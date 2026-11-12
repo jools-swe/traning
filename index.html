@@ -25,7 +25,10 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
     </button>
     <button id="start" class="start-btn">Starta</button>
-    <p id="home-summary" class="muted summary"></p>
+    <div class="home-info">
+      <p id="home-summary" class="summary"></p>
+      <p id="home-record" class="muted record"></p>
+    </div>
   </main>
 
   <!-- PASS -->
@@ -47,14 +50,16 @@
     <footer class="run-bottom">
       <button id="run-back" class="ghost-btn" aria-label="Föregående">‹</button>
       <p id="run-next" class="next muted"></p>
-      <button id="run-skip" class="ghost-btn" aria-label="Hoppa över">›</button>
+      <button id="run-skip" class="ghost-btn" aria-label="Nästa">›</button>
     </footer>
   </main>
 
   <!-- KLART -->
   <main id="view-done" class="view done" hidden>
     <h1 class="done-title">Klart.</h1>
+    <p id="done-score" class="done-score"></p>
     <p id="done-summary" class="muted"></p>
+    <p id="done-badge" class="done-badge"></p>
     <button id="done-close" class="pill-btn">Till start</button>
   </main>
 
@@ -65,17 +70,53 @@
       <button id="close-settings" class="pill-btn small">Klar</button>
     </header>
 
-    <section class="group">
-      <h2>Uppvärmning</h2>
-      <div id="list-warmup" class="list"></div>
-      <button class="add-btn" data-add="warmup">+ Lägg till</button>
-    </section>
+    <div id="tabs" class="seg tabs" role="tablist">
+      <button type="button" data-tab="amrap" role="tab">AMRAP complex</button>
+      <button type="button" data-tab="custom" role="tab">Eget pass</button>
+    </div>
 
-    <section class="group">
-      <h2>Övningar</h2>
-      <div id="list-exercises" class="list"></div>
-      <button class="add-btn" data-add="exercises">+ Lägg till</button>
-    </section>
+    <!-- Flik: AMRAP -->
+    <div id="panel-amrap" class="panel">
+      <button type="button" class="active-btn" data-mode="amrap"></button>
+
+      <section class="group">
+        <h2>Upplägg</h2>
+        <div id="amrap-settings" class="card"></div>
+      </section>
+
+      <section class="group">
+        <h2>Övningar</h2>
+        <div id="amrap-list" class="list"></div>
+        <button id="amrap-add" class="add-btn">+ Lägg till</button>
+      </section>
+
+      <section class="group">
+        <h2>Resultat</h2>
+        <div id="amrap-history" class="card"></div>
+      </section>
+    </div>
+
+    <!-- Flik: Eget pass -->
+    <div id="panel-custom" class="panel" hidden>
+      <button type="button" class="active-btn" data-mode="custom"></button>
+
+      <section class="group">
+        <h2>Uppvärmning</h2>
+        <div id="list-warmup" class="list"></div>
+        <button class="add-btn" data-add="warmup">+ Lägg till</button>
+      </section>
+
+      <section class="group">
+        <h2>Övningar</h2>
+        <div id="list-exercises" class="list"></div>
+        <button class="add-btn" data-add="exercises">+ Lägg till</button>
+      </section>
+
+      <section class="group">
+        <h2>Vila</h2>
+        <div id="custom-general" class="card"></div>
+      </section>
+    </div>
 
     <section class="group">
       <h2>Allmänt</h2>

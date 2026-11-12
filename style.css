@@ -167,3 +167,52 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px 
 .add-btn:active { background: var(--surface); }
 .row-btns { display: flex; gap: 10px; }
 .row-btns .pill-btn { flex: 1; }
+
+/* ---------- Start: info ---------- */
+.home-info { display: grid; gap: 6px; text-align: center; min-height: 3em; }
+.home-info .summary { color: var(--text); }
+.record { font-size: 15px; }
+
+/* ---------- AMRAP under passet ---------- */
+.run[data-kind="amrap"] .title { font-size: clamp(34px, 10vw, 60px); }
+.run[data-kind="amrap"] .value { font-size: clamp(80px, 26vw, 32vh); }
+.run.final .value { color: var(--accent); }
+
+/* ---------- Klart: resultat ---------- */
+.done-score { font-size: clamp(44px, 13vw, 72px); font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1.05; }
+.done-badge { color: var(--accent); font-weight: 700; font-size: 17px; }
+
+/* ---------- Flikar ---------- */
+.tabs { margin-top: 16px; }
+.tabs button { padding: 11px 6px; }
+.tabs button[aria-selected="true"] { background: var(--surface-2); color: var(--accent); }
+
+.active-btn {
+  width: 100%; margin-top: 16px; padding: 14px; border-radius: var(--radius);
+  background: var(--surface-2); color: var(--text); font-weight: 600; font-size: 16px;
+  border: 1px solid transparent;
+}
+.active-btn.active { background: transparent; border-color: var(--accent); color: var(--accent); }
+
+/* ---------- AMRAP-övningar ---------- */
+.name-row { display: flex; align-items: center; gap: 4px; background: var(--surface); border-radius: 12px; padding: 4px 4px 4px 14px; }
+.name-num { color: var(--muted); font-size: 15px; width: 18px; font-variant-numeric: tabular-nums; }
+.name-row input {
+  flex: 1; width: 0; min-width: 0; padding: 12px 6px; background: transparent; border: 0; color: var(--text);
+  font: inherit; font-size: 17px; -webkit-user-select: text; user-select: text;
+}
+.name-row input:focus { outline: none; }
+.name-row:focus-within { box-shadow: inset 0 0 0 1px var(--accent); }
+.mini-btn { width: 42px; height: 42px; border-radius: 10px; color: var(--muted); font-size: 17px; }
+.mini-btn.del { color: var(--danger); }
+.mini-btn:disabled { opacity: .3; }
+.mini-btn:active { background: var(--surface-2); }
+
+/* ---------- Resultat ---------- */
+#amrap-history { gap: 10px; }
+#amrap-history h3 { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.hist-row { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.hist-row span:first-child { color: var(--muted); white-space: nowrap; }
+.hist-row span:last-child { text-align: right; }
+.link-btn { justify-self: start; color: var(--muted); font-size: 14px; padding: 6px 0; text-decoration: underline; text-underline-offset: 3px; }
+.list > * { min-width: 0; }

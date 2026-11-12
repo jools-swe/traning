@@ -1,7 +1,7 @@
 'use strict';
 
 // Byt version när du vill tvinga fram en helt ren cache.
-const CACHE = 'traning-v1';
+const CACHE = 'traning-v2';
 const ASSETS = [
   './',
   './index.html',
