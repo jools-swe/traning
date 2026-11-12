@@ -1,11 +1,12 @@
 'use strict';
 
 // Byt version när du vill tvinga fram en helt ren cache.
-const CACHE = 'traning-v2';
+const CACHE = 'traning-v3';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
+  './figures.js',
   './app.js',
   './manifest.webmanifest',
   './icons/icon-180.png',

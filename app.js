@@ -344,7 +344,13 @@ function beginRun(state) {
   ticker = setInterval(() => (run && run.type === 'amrap' ? amrapTick() : customTick()), 100);
 }
 
+function showFigure(name) {
+  const on = Figures.play(Figures.match(name));
+  $('view-run').classList.toggle('has-figure', on);
+}
+
 function stopRun() {
+  Figures.stop();
   clearInterval(ticker);
   ticker = null;
   allowSleep();
@@ -454,6 +460,7 @@ function renderAmrap() {
     $('run-hint').textContent = run.round === 0 && run.ex === 0 ? 'Tryck när du är klar' : '';
   }
   $('run-back').classList.toggle('invisible', prep || (run.round === 0 && run.ex === 0));
+  showFigure(prep ? run.names[0] : run.names[run.ex]);
   run.shownSec = null;
   renderAmrapClock();
 }
@@ -539,6 +546,7 @@ function renderStep() {
   $('run-sub').textContent = st.kind === 'work' ? fmtKg(st.weight) : '';
   $('run-next').textContent = st.next;
   $('run-back').classList.toggle('invisible', run.i === 0);
+  showFigure(st.kind === 'rest' ? null : st.title);
   renderValue();
 }
 
@@ -898,6 +906,7 @@ async function importData(file) {
 /* ---------- Start ---------- */
 
 function init() {
+  Figures.mount($('run-figure'));
   $('start').addEventListener('click', startWorkout);
   $('open-settings').addEventListener('click', () => { settingsTab = config.mode; renderSettings(); show('settings'); });
   $('close-settings').addEventListener('click', () => { saveConfig(); renderHome(); show('home'); });

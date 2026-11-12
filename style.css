@@ -216,3 +216,13 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px 
 .hist-row span:last-child { text-align: right; }
 .link-btn { justify-self: start; color: var(--muted); font-size: 14px; padding: 6px 0; text-decoration: underline; text-underline-offset: 3px; }
 .list > * { min-width: 0; }
+
+/* ---------- Streckgubbe ---------- */
+.figure { width: auto; height: clamp(120px, 26vh, 230px); aspect-ratio: 210 / 235; margin-bottom: 4px; overflow: visible; }
+.fig-limb { stroke: var(--accent); stroke-width: 6; stroke-linecap: round; fill: none; }
+.fig-head { fill: var(--accent); }
+.fig-kb { fill: var(--text); }
+.fig-kb-handle { stroke: var(--text); stroke-width: 4; stroke-linecap: round; }
+.fig-ground { stroke: var(--line); stroke-width: 3; stroke-linecap: round; }
+.run.has-figure .value { font-size: clamp(72px, 22vw, 24vh); }
+.run.has-figure .stage { gap: 6px; }

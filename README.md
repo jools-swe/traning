@@ -5,6 +5,7 @@ En snorenkel träningsapp för telefonen. Du trycker på Starta och kör.
 - Det finns två pass under kugghjulet, och du väljer vilket som körs när du trycker Starta:
   - **AMRAP complex**: kettlebellövningar med 10 reps var. Tiden är 15, 20 eller 30 min med en timer som löper hela passet. Du trycker när en övning är klar. Rundor räknas och sparas, och rekord hålls per tid.
   - **Eget pass**: uppvärmning och övningar med set, reps eller tid, vikt och vila.
+- Animerade streckgubbar visar rörelsen för row, goblet squat, push ups, curl, swing och thruster. Gubben väljs efter övningens namn, så det fungerar även i Eget pass.
 - Repsövningar: du trycker var som helst på skärmen när du är klar. Med ‹ ångrar du ett feltryck.
 - Tidsövningar och vila: stor nedräkning med pip vid 3-2-1. Tryck på skärmen för att pausa.
 - Skärmen hålls vaken under passet och appen fungerar offline.
@@ -16,6 +17,7 @@ En snorenkel träningsapp för telefonen. Du trycker på Starta och kör.
 index.html             vyerna (start, pass, klart, inställningar)
 style.css              utseende – färgerna ligger överst i :root
 app.js                 all logik
+figures.js             streckgubbarna (två ställningar per övning)
 sw.js                  offline-stöd (service worker)
 manifest.webmanifest   gör att den beter sig som en app på hemskärmen
 icons/                 appikoner
