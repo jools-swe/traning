@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; connect-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0a1324">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Träning">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <title>Träning</title>
+</head>
+<body>
+
+  <!-- START -->
+  <main id="view-home" class="view home">
+    <button id="open-settings" class="icon-btn corner" aria-label="Inställningar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+    </button>
+    <button id="start" class="start-btn">Starta</button>
+    <p id="home-summary" class="muted summary"></p>
+  </main>
+
+  <!-- PASS -->
+  <main id="view-run" class="view run" hidden>
+    <div class="progress"><div id="run-progress" class="progress-fill"></div></div>
+    <header class="run-top">
+      <span id="run-count" class="muted"></span>
+      <button id="run-quit" class="icon-btn hold" aria-label="Avsluta (håll inne)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <section id="run-stage" class="stage">
+      <p id="run-label" class="label"></p>
+      <h1 id="run-title" class="title"></h1>
+      <p id="run-value" class="value"></p>
+      <p id="run-sub" class="sub"></p>
+      <p id="run-hint" class="hint"></p>
+    </section>
+    <footer class="run-bottom">
+      <button id="run-back" class="ghost-btn" aria-label="Föregående">‹</button>
+      <p id="run-next" class="next muted"></p>
+      <button id="run-skip" class="ghost-btn" aria-label="Hoppa över">›</button>
+    </footer>
+  </main>
+
+  <!-- KLART -->
+  <main id="view-done" class="view done" hidden>
+    <h1 class="done-title">Klart.</h1>
+    <p id="done-summary" class="muted"></p>
+    <button id="done-close" class="pill-btn">Till start</button>
+  </main>
+
+  <!-- INSTÄLLNINGAR -->
+  <main id="view-settings" class="view settings" hidden>
+    <header class="settings-top">
+      <h1>Pass</h1>
+      <button id="close-settings" class="pill-btn small">Klar</button>
+    </header>
+
+    <section class="group">
+      <h2>Uppvärmning</h2>
+      <div id="list-warmup" class="list"></div>
+      <button class="add-btn" data-add="warmup">+ Lägg till</button>
+    </section>
+
+    <section class="group">
+      <h2>Övningar</h2>
+      <div id="list-exercises" class="list"></div>
+      <button class="add-btn" data-add="exercises">+ Lägg till</button>
+    </section>
+
+    <section class="group">
+      <h2>Allmänt</h2>
+      <div id="general" class="card"></div>
+    </section>
+
+    <section class="group">
+      <h2>Backup</h2>
+      <div class="row-btns">
+        <button id="export" class="pill-btn secondary">Exportera</button>
+        <button id="import" class="pill-btn secondary">Importera</button>
+      </div>
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+    </section>
+  </main>
+
+</body>
+</html>

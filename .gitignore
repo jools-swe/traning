@@ -1,0 +1,7 @@
+# macOS / editorer
+.DS_Store
+.vscode/
+.idea/
+
+# Dina exporterade pass – hör hemma i telefonen, inte i ett publikt repo
+traning-*.json
